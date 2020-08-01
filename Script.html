@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Page Title</title>
+  <meta charset="UTF-8"/>
+</head>
+<body>
+  <script>
+ let options=["Rock","Paper","Scissors"]; 
+function computerPlay(){
+	return options[ Math.floor(Math.random()* 3 )];		
+}
+function playRound(playerSelection,computerSelection){
+	switch(playerSelection){
+	case "rock":
+	if (computerSelection=="Rock"){
+		return "It's a TIE | Rock and Rock";
+	}
+	else if(computerSelection=="Paper"){
+		return "You lose | Paper beats Rock";
+	}
+	else{ return "You WIn | Rock beats Scissors";}
+	break;
+	case "scissors":
+	if (computerSelection=="Rock"){
+		return "You lose | Rock beats Scissors";
+	}
+	else if(computerSelection=="Paper"){
+		return "You Win | Scissors beats Paper";
+	}
+	else{ return "It's a Tie | Scissors everywhere";}
+	break;
+	case "paper":
+	if (computerSelection=="Rock"){
+		return "You win | Paper beats rock";
+	}
+	else if(computerSelection=="Paper"){
+		return "It's a tie | Papper for 2";
+	}
+	else{ return "You lose | Scissors beats paper";}
+	break;
+	default:
+	return "Try again";
+	break;
+} }
+function playerSelec(){
+let preg = prompt("Your turn: Rock, paper or scissors ?").toLowerCase();
+return preg;
+}
+while(1){
+console.log(playRound(playerSelec(),computerPlay()));
+ }
+
+  </script>
+</body>
+</html>
