@@ -1,0 +1,72 @@
+body{
+    background-image: url("images/room.png");
+}
+#rock {
+    
+    background-image: url("images/rock.png");
+    background-repeat:no-repeat ;
+    background-position: center;
+    background-size:cover ;
+    
+}
+#paper{
+    
+    background-image: url("images/paper.png");
+    background-repeat:no-repeat ;
+    background-position: center;
+    background-size:cover ;
+
+}
+#scissors{
+    background-image: url("images/scissors.png");
+    background-repeat:no-repeat ;
+    background-position: center;
+    background-size:cover ;
+}
+.marcador{
+    font-size: 25px;
+    background:grey;
+    font-weight: bold;
+}
+.number{
+    margin:0px 20px;
+}
+.buttons{
+    position: absolute;
+    top:100px;
+    display: flex;
+    flex-direction:column;
+}
+.player{
+    display:flex;
+    flex-direction:row;
+
+}
+.computer{
+    display:flex;
+    flex-direction: row;
+}
+.button{
+    margin: 20px 30px;
+    background:black;
+    width: 186px;
+    height: 240px;
+    border-radius: 8%; 
+    border: 2px solid #ffdab9;}
+.buttonOver{
+    scale:1.1 ;
+    border: 4px solid white;
+
+}   
+.win{
+    border:4px solid green;
+    scale:1.1;
+} 
+.lose{
+    border:4px solid red;
+    scale:1.1;
+}
+.tie{
+    border:4px solid yellow;
+    scale:1.1;
+}
