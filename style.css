@@ -1,5 +1,17 @@
 body{
-    background-image: url("images/room.png");
+    background-image: url("images/cube.jpg");
+  
+    /*flex-wrap: wrap;*/
+    
+
+}
+.body{
+    display: flex;
+    flex-direction: row;
+    justify-content:baseline;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 #rock {
     
@@ -23,24 +35,58 @@ body{
     background-position: center;
     background-size:cover ;
 }
-.marcador{
+/*.marcador{
+    top:80px;
     font-size: 25px;
+    padding:10px;
+    border-radius:12px ;
+    display:inline-block;
     background:grey;
     font-weight: bold;
+}*/
+.score{
+    font-size: 50px;
+    display: flex;
+    color:white;
+    flex-direction: column;
+    align-items: center; 
+    
 }
+
 .number{
-    margin:0px 20px;
+    
+    padding-right: 50px;
+    padding-left: 50px;
+    font-size: 300px;
+    text-shadow:0 0 1rem #0f73ff;
 }
 .buttons{
-    position: absolute;
-    top:100px;
+   /* position: absolute;
+    top:180px;*/
+    
     display: flex;
     flex-direction:column;
+    padding-top: 50px;
+    justify-content: space-around;
+    
 }
+.result{
+    height:100px ;
+    display: flex;
+    width: 100%;
+    padding-top:10px;
+    line-height: 5px;
+    font-size: 60px;
+    color:white;
+    /*justify-self: start;*/
+    
+    justify-content: center;
+}
+
 .player{
     display:flex;
     flex-direction:row;
-
+   
 }
 .computer{
     display:flex;
@@ -53,20 +99,27 @@ body{
     height: 240px;
     border-radius: 8%; 
     border: 2px solid #ffdab9;}
+
 .buttonOver{
     scale:1.1 ;
     border: 4px solid white;
+    box-shadow: 0 0 1rem #e8e8d8;
 
 }   
 .win{
-    border:4px solid green;
+    border:4px solid #94f062;
+    box-shadow: 0 0 1rem #29cf48;
     scale:1.1;
 } 
+
 .lose{
-    border:4px solid red;
+    border:4px solid #f36b6b;
+    box-shadow: 0 0 1rem #e31c1c;
     scale:1.1;
 }
+
 .tie{
-    border:4px solid yellow;
+    border:4px solid  #f7f757;
+    box-shadow: 0 0 1rem #e3e01d;
     scale:1.1;
 }
