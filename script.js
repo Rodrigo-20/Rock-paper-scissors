@@ -1,8 +1,12 @@
 let playerSelection;
-let playerMarcador=0;
-let compMarcador=0;
+let playerScore=0;
+let compScore=0;
+const Cbuttons=document.querySelectorAll('[data-random]');
+const playMarc=document.querySelector(`[data-marcador="player"]`);
+const compMarc=document.querySelector(`[data-marcador="computer"]`);
+
 function computerPlay(){//computer's selection in a randomly fashion
-    let options=['Rock','Paper','Scissors'];
+    let options=['rock','paper','scissors'];
     return options[Math.floor(Math.random()*3)];
 }
 function playerChose(){
@@ -10,50 +14,82 @@ function playerChose(){
 }
 function removeClass(){
     this.classList.remove('win','lose','buttonOver','tie');
+    
+    Cbuttons.forEach((cbutton)=>cbutton.classList.remove('buttonOver'));
   
 }
-function win(x){
+function gameOver(x,y){
+    let res='';
+    const result=document.querySelector('p');
+             
+    result.textContent=res;
+     
+    
+        if(x==5||y==5){
+            if(x==5){
+                res='You Win !';
+            }
+            else{ res='You Lose '}
+          
+            playerScore=0;
+            compScore=0;
+
+            
+        }
+        result.textContent=res;
+        
+       
+    }
+
+function win(x,compButton){
     x.classList.add('win');
-    playerMarcador++;
+    playerScore++;
+    compSelectButton=document.querySelector(`[data-random="${compButton}"]`);
+    compSelectButton.classList.add('buttonOver');
 }
-function lose(x){
+function lose(x,compButton){
     x.classList.add('lose');
-    compMarcador++;
+    compScore++;
+    compSelectButton=document.querySelector(`[data-random="${compButton}"]`);
+    compSelectButton.classList.add('buttonOver');
 }
-function tie(x){
+function tie(x,compButton){
     x.classList.add('tie');
+    compSelectButton=document.querySelector(`[data-random="${compButton}"]`);
+    compSelectButton.classList.add('buttonOver');
 }
 function playRound(){
     playerSelection=this.getAttribute('data-selection');
-    const playMarc=document.querySelector(`[data-marcador="player"]`);
-    const compMarc=document.querySelector(`[data-marcador="computer"]`);
+    Cbuttons.forEach((cbutton)=>cbutton.classList.remove('buttonOver'));
+    
     this.classList.remove('win','lose','tie','buttonOver'); 
     console.log('just fine');
     computerSelection=computerPlay();
     switch(playerSelection){
         
         case "rock":
-        if (computerSelection=="Rock"){tie(this);}
-        else if(computerSelection=="Paper"){ lose(this);}
-        else{  win(this);}
+        if (computerSelection=="rock"){tie(this,computerSelection);}
+        else if(computerSelection=="paper"){ lose(this,computerSelection);}
+        else{  win(this,computerSelection);}
         break;
 
         case "scissors":
-        if (computerSelection=='Rock'){     lose(this);  }
-        else if(computerSelection=="Paper"){    win(this);  }
-        else{   tie(this);}
+        if (computerSelection=='rock'){     lose(this,computerSelection);  }
+        else if(computerSelection=="paper"){    win(this,computerSelection);  }
+        else{   tie(this,computerSelection);}
         break;
 
         case "paper":
-        if (computerSelection=="Rock"){ win(this);}
-        else if(computerSelection=="Paper"){    tie(this);}
-        else{   lose(this);        }
+        if (computerSelection=="rock"){ win(this,computerSelection);}
+        else if(computerSelection=="paper"){    tie(this,computerSelection);}
+        else{   lose(this,computerSelection);        }
         break;
-       
+        
         
 }
-    playMarc.textContent=playerMarcador;
-    compMarc.textContent=compMarcador; 
+    playMarc.textContent=playerScore;
+    compMarc.textContent=compScore; 
+    gameOver(playerScore,compScore);
 }
 
 
