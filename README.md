@@ -1,2 +1,3 @@
-# The-Odin-Project
-Its only the beginning
+# Rock paper scissors
+
+Play this simple game against your computer.
